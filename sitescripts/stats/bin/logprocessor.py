@@ -267,7 +267,8 @@ def parse_query(query):
 
 @cache_lru
 def parse_lastversion(last_version):
-  return datetime.strptime(last_version, "%Y%m%d%H%M")
+  timestamp = last_version.split("-", 1)[0]
+  return datetime.strptime(timestamp, "%Y%m%d%H%M")
 
 @cache_lru
 def get_week(date):
